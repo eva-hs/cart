@@ -17,6 +17,7 @@ class Products extends Component {
   };
 
   handleReset = () => {
+    // Ändra på flera produkter
     const products = this.state.products.map((product) => ({
       ...product,
       quantity: 0,
@@ -24,8 +25,13 @@ class Products extends Component {
     this.setState({ products });
   };
 
-  handleIncrement = () => {
-    this.setState({ quantity: this.state.quantity + 1 });
+  handleIncrement = (product) => {
+    // Ändra på 1 produkt
+    const products = [...this.state.products];
+    const index = products.indexOf(product);
+    products[index] = { ...product };
+    products[index].quantity++;
+    this.setState({ products });
   };
 
   render() {
