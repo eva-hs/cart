@@ -1,13 +1,19 @@
 import React, { Component } from "react";
 
 class Product extends Component {
-  state = { quantity: 0 };
+  state = { quantity: this.props.product.quantity };
   render() {
     return (
       <div className="m-2">
         <span className={this.getBadgeClasses()}>{this.formatQuantity()}</span>
         <button onClick={this.handleIncrement} className="btn btn-primary">
           Increment
+        </button>
+        <button
+          onClick={() => this.props.onDelete(this.props.product.id)}
+          className="btn btn-danger ms-2"
+        >
+          delete
         </button>
       </div>
     );
