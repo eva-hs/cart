@@ -35,6 +35,10 @@ class App extends Component {
     this.setState({ products });
   };
 
+  handleDecrement = () => {
+    console.log("Decrement button has been used");
+  };
+
   render() {
     const { products } = this.state;
     return (
@@ -45,6 +49,7 @@ class App extends Component {
           onDelete={this.handleDelete}
           onReset={this.handleReset}
           onIncrement={this.handleIncrement}
+          onDecrement={this.handleDecrement}
         />
       </>
     );
