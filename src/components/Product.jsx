@@ -12,12 +12,9 @@ class Product extends Component {
         >
           Increment
         </button>
-        <button
-          onClick={() => onDecrement(product)}
-          className="btn btn-primary ms-2"
-        >
-          Decrement
-        </button>
+        {/* Knappen ska endast synas om värdet quantity
+        på just den raden är större än 0 */}
+        <span>{this.formatDecrementButton(product)}</span>
         <button
           onClick={() => onDelete(product.id)}
           className="btn btn-danger ms-2"
@@ -37,6 +34,21 @@ class Product extends Component {
   formatQuantity() {
     const { quantity } = this.props.product;
     return quantity === 0 ? "Zero" : quantity;
+  }
+  formatDecrementButton(product) {
+    // Jag använder this.props 2 gånger,
+    // men ena är från this.props och andra från this.props.product,
+    // så jag förenklar inte det.
+    return (
+      this.props.product.quantity > 0 && (
+        <button
+          onClick={() => this.props.onDecrement(product)}
+          className="btn btn-primary ms-2"
+        >
+          Decrement
+        </button>
+      )
+    );
   }
 }
 
