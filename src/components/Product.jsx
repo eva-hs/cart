@@ -8,9 +8,9 @@ class Product extends Component {
         <span className={this.getBadgeClasses()}>{this.formatQuantity()}</span>
         <button
           onClick={() => onIncrement(product)}
-          className="btn btn-primary"
+          className="btn btn-secondary"
         >
-          Increment
+          +
         </button>
         {/* Knappen ska endast synas om värdet quantity
         på just den raden är större än 0 */}
@@ -19,7 +19,7 @@ class Product extends Component {
           onClick={() => onDelete(product.id)}
           className="btn btn-danger ms-2"
         >
-          delete
+          X
         </button>
       </div>
     );
@@ -43,9 +43,9 @@ class Product extends Component {
       this.props.product.quantity > 0 && (
         <button
           onClick={() => this.props.onDecrement(product)}
-          className="btn btn-primary ms-2"
+          className="btn btn-secondary ms-2"
         >
-          Decrement
+          -
         </button>
       )
     );
