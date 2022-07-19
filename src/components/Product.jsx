@@ -2,10 +2,9 @@ import React, { Component } from "react";
 
 class Product extends Component {
   render() {
-    const { onDelete, onIncrement, onDecrement, product } = this.props;
+    const { onDelete, onIncrement, product } = this.props;
     return (
       <div className="m-3">
-        {/* <div className="container"> */}
         <div className="row">
           {/* Lagt fast bredd på columnen samt padding till 0 för att texten
                 ska bli vänsterställd */}
@@ -33,7 +32,6 @@ class Product extends Component {
           </div>
         </div>
       </div>
-      // </div>
     );
   }
 

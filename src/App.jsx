@@ -36,7 +36,6 @@ class App extends Component {
   };
 
   handleDecrement = (product) => {
-    //console.log("Decrement button has been used");
     const products = [...this.state.products];
     const index = products.indexOf(product);
     products[index] = { ...product };
