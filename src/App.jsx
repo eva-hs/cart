@@ -44,11 +44,18 @@ class App extends Component {
     this.setState({ products });
   };
 
+  productCountBadge() {
+    const productCount = this.state.products.filter(
+      (product) => product.quantity !== 0
+    );
+    return productCount.length;
+  }
+
   render() {
     const { products } = this.state;
     return (
       <>
-        <NavBar productCount={products.length} />
+        <NavBar productCount={this.productCountBadge()} />
         <Products
           products={products}
           onDelete={this.handleDelete}

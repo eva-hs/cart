@@ -7,12 +7,21 @@ class NavBar extends Component {
         <div className="container-fluid">
           <span className="navbar-brand h1">
             Navbar
-            <span className="badge rounded-pill bg-secondary ms-2">
-              {this.props.productCount}
-            </span>
+            {/* Badgen ska endast visa antal produkter som inte är 0 */}
+            <span>{this.formatProductCountBadge(this.props.productCount)}</span>
           </span>
         </div>
       </nav>
+    );
+  }
+
+  formatProductCountBadge(productCount) {
+    return (
+      productCount > 0 && (
+        <span className="badge rounded-pill bg-secondary ms-2">
+          {productCount}
+        </span>
+      )
     );
   }
 }
