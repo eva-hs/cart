@@ -4,24 +4,36 @@ class Product extends Component {
   render() {
     const { onDelete, onIncrement, onDecrement, product } = this.props;
     return (
-      <div className="m-2">
-        <span className={this.getBadgeClasses()}>{this.formatQuantity()}</span>
-        <button
-          onClick={() => onIncrement(product)}
-          className="btn btn-secondary"
-        >
-          +
-        </button>
-        {/* Knappen ska endast synas om värdet quantity
-        på just den raden är större än 0 */}
-        <span>{this.formatDecrementButton(product)}</span>
-        <button
-          onClick={() => onDelete(product.id)}
-          className="btn btn-danger ms-2"
-        >
-          X
-        </button>
+      <div className="m-3">
+        {/* <div className="container"> */}
+        <div className="row">
+          {/* Lagt fast bredd på columnen samt padding till 0 för att texten
+                ska bli vänsterställd */}
+          <div className="col-1 p-0">
+            <span className={this.getBadgeClasses()}>
+              {this.formatQuantity()}
+            </span>
+          </div>
+          <div className="col">
+            <button
+              onClick={() => onIncrement(product)}
+              className="btn btn-secondary"
+            >
+              +
+            </button>
+            {/* Knappen ska endast synas om värdet quantity
+                  på just den raden är större än 0 */}
+            <span>{this.formatDecrementButton(product)}</span>
+            <button
+              onClick={() => onDelete(product.id)}
+              className="btn btn-danger ms-2"
+            >
+              X
+            </button>
+          </div>
+        </div>
       </div>
+      // </div>
     );
   }
 
