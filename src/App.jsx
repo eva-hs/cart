@@ -18,7 +18,7 @@ class App extends Component {
   };
 
   handleReset = () => {
-    // Ändra på flera produkter
+    // Change on multiple proucts
     const products = this.state.products.map((product) => ({
       ...product,
       quantity: 0,
@@ -27,7 +27,7 @@ class App extends Component {
   };
 
   handleIncrement = (product) => {
-    // Ändra på 1 produkt
+    // Change on one product
     const products = [...this.state.products];
     const index = products.indexOf(product);
     products[index] = { ...product };
@@ -36,6 +36,7 @@ class App extends Component {
   };
 
   handleDecrement = (product) => {
+    // Change on one product
     const products = [...this.state.products];
     const index = products.indexOf(product);
     products[index] = { ...product };
