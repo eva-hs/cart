@@ -4,39 +4,36 @@ class Product extends Component {
   render() {
     const { onDelete, onIncrement, product } = this.props;
     return (
-      <div className="m-3">
-        <div className="row">
-          {/* Lagt fast bredd på columnen samt padding till 0 för att texten
+      <div className="row m-3">
+        {/* Lagt fast bredd på columnen samt padding till 0 för att texten
                 ska bli vänsterställd */}
-          <div className="col-1 p-0">
-            <span className={this.getBadgeClasses()}>
-              {this.formatQuantity()}
-            </span>
-          </div>
-          <div className="col">
-            <button
-              onClick={() => onIncrement(product)}
-              className="btn btn-secondary"
-            >
-              +
-            </button>
-            {/* Knappen ska endast vara aktiv om värdet quantity
-                  på just den raden är större än 0 */}
-            <span>{this.formatDecrementButton(product)}</span>
-            <button
-              onClick={() => onDelete(product.id)}
-              className="btn btn-danger ms-2"
-            >
-              X
-            </button>
-          </div>
+        <div className="col-1 p-0">
+          <span className={this.getBadgeClasses()}>
+            {this.formatQuantity()}
+          </span>
+        </div>
+        <div className="col">
+          <button
+            onClick={() => onIncrement(product)}
+            className="btn btn-secondary"
+          >
+            +
+          </button>
+          {/* Button will only be active if quantity is > 0.*/}
+          <span>{this.formatDecrementButton(product)}</span>
+          <button
+            onClick={() => onDelete(product.id)}
+            className="btn btn-danger"
+          >
+            X
+          </button>
         </div>
       </div>
     );
   }
 
   getBadgeClasses() {
-    let classes = "badge me-2 bg-";
+    let classes = "badge bg-";
     classes +=
       this.props.product.quantity === 0 ? "warning text-dark" : "primary";
     return classes;
@@ -47,17 +44,16 @@ class Product extends Component {
   }
   formatDecrementButton(product) {
     // Jag använder this.props 2 gånger,
-    // men ena är från this.props och andra från this.props.product,
-    // så jag förenklar inte det.
+    // men ena är från this.props och andra från this.props.product, så jag förenklar inte det.
     return this.props.product.quantity > 0 ? (
       <button
         onClick={() => this.props.onDecrement(product)}
-        className="btn btn-secondary ms-2"
+        className="btn btn-secondary mx-2"
       >
         -
       </button>
     ) : (
-      <button className="btn btn-secondary ms-2" disabled>
+      <button className="btn btn-secondary mx-2" disabled>
         -
       </button>
     );

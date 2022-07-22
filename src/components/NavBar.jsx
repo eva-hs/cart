@@ -7,7 +7,7 @@ class NavBar extends Component {
         <div className="container-fluid">
           <span className="navbar-brand h1">
             Navbar
-            {/* Badgen ska endast visa antal produkter som inte är 0 */}
+            {/* Badge will only show amount of products with values >0 */}
             <span>{this.formatProductCountBadge(this.props.productCount)}</span>
           </span>
         </div>
